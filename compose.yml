@@ -1,0 +1,14 @@
+services:
+  devcontainer:
+    build:
+      dockerfile: Dockerfile
+    
+    env_file:
+      - path: ./.env.devcontainer
+        required: false
+
+    volumes:
+      - ..:/workspaces/main:cached
+
+    # Overrides default command so things don't shut down after the process ends.
+    command: sleep infinity
